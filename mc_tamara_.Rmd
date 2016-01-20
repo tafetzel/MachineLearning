@@ -16,8 +16,10 @@ manner to maximise health benefits and minimize injuries
 
 # Methods 
 
-The data used to analyse excercise quality are taken from Velloso et al. (2013) weight lifting data-set. The authors collect data on weight excercises in 6 different manner, one where the excercise is performed correctly and 5 others where common mistakes are simulated. The whole process was supervised by a professional trainer. 
+The data used to analyse excercise quality are taken from Velloso et al. (2013) weight lifting data-set. The authors collect data on weight excercises in 6 different manner, one where the excercise is performed correctly and 5 others where common mistakes are simulated. The whole process was supervised by a professional trainer.
+
 ```{r read data}
+setwd("../MachineLearning")
 testing <- read.csv("pml-testing.csv", na.strings=c("#DIV/0","","NA"), stringsAsFactors=TRUE)
 training <- read.csv("pml-training.csv",na.strings=c("#DIV/0","","NA"), stringsAsFactors=TRUE)
 ``` 
@@ -108,7 +110,7 @@ testpca
 This analysis presents a model based on random-forest machine learning algorithm using Principal Components Analysis and cross-validation to detect if weight lifting exercises are perfomed well. Results indicate that the algorithm is able to predict mistakes in exercise with an accuracy > 98% going along with a low error rate of 1.46%. Such information is important because performing exercises in a correct manner can provide substantial health benefits and help avoiding injuries. 
 
 # References
-Max Kuhn. Contributions from Jed Wing, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper,   Zachary Mayer, Brenton Kenkel, the R Core Team, Michael Benesty, Reynald Lescarbeau, Andrew Ziem, Luca Scrucca,   Yuan Tang and Can Candan. (2015). caret: Classification and Regression Training. R package version 6.0-58.        http://CRAN.R-project.org/package=caret
+Max Kuhn. Contributions from Jed Wing, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper,   Zachary Mayer, Brenton Kenkel, the R Core Team, Michael Benesty, Reynald Lescarbeau, Andrew Ziem, Luca Scrucca,   Yuan Tang and Can Candan. (2015). caret: Classification and Regression Training. R package version 6.0-58. http://CRAN.R-project.org/package=caret
 
 R Core Team (2015). R: A language and environment for statistical computing. R Foundation for Statistical           Computing, Vienna, Austria. URL http://www.R-project.org/.
 

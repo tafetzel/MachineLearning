@@ -10,9 +10,11 @@ manner to maximise health benefits and minimize injuries
 
 # Methods 
 
-The data used to analyse excercise quality are taken from Velloso et al. (2013) weight lifting data-set. The authors collect data on weight excercises in 6 different manner, one where the excercise is performed correctly and 5 others where common mistakes are simulated. The whole process was supervised by a professional trainer. 
+The data used to analyse excercise quality are taken from Velloso et al. (2013) weight lifting data-set. The authors collect data on weight excercises in 6 different manner, one where the excercise is performed correctly and 5 others where common mistakes are simulated. The whole process was supervised by a professional trainer.
+
 
 ```r
+setwd("../MachineLearning")
 testing <- read.csv("pml-testing.csv", na.strings=c("#DIV/0","","NA"), stringsAsFactors=TRUE)
 training <- read.csv("pml-training.csv",na.strings=c("#DIV/0","","NA"), stringsAsFactors=TRUE)
 ```
@@ -52,6 +54,9 @@ require(caret)
 
 ```
 ## Loading required package: lattice
+```
+
+```
 ## Loading required package: ggplot2
 ```
 
@@ -83,7 +88,7 @@ par(oma=c(2,2,2,2))
 corrplot(correl,method="square", tl.pos="n")
 ```
 
-![](mc_tamara__files/figure-html/correlation plot-1.png) 
+![](mc_tamara__files/figure-html/correlation plot-1.png)\
 
 A correlation plot of the remaining 53 columns indicates that the observed correlation between most variables is relatively low. However, exceptions like in the upper left part of the correlation plot indicate substantial correlation between some of the variables. To prevent overfitting by including to many (correlated) variables it is necessary to select the most important variables. Because this data-set is relatively large, Principal Component Analysis is applied to reduce complexity by extracting principal components that can explain the bulk of the total variation. 
 
@@ -150,6 +155,9 @@ fitpca <- train(trainpc$classe~.,method="rf",preProcess=c("pca"),trControl = con
 
 ```
 ## randomForest 4.6-12
+```
+
+```
 ## Type rfNews() to see new features/changes/bug fixes.
 ```
 
@@ -178,9 +186,9 @@ fitpca
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  Accuracy   Kappa      Accuracy SD  Kappa SD   
-##    2    0.9833861  0.9789828  0.003499201  0.004427838
-##   27    0.9765572  0.9703474  0.001395181  0.001764322
-##   53    0.9763533  0.9700882  0.001829251  0.002314527
+##    2    0.9832333  0.9787905  0.003180936  0.004023620
+##   27    0.9765061  0.9702816  0.001366873  0.001728882
+##   53    0.9766588  0.9704742  0.001812634  0.002293051
 ## 
 ## Accuracy was used to select the optimal model using  the largest value.
 ## The final value used for the model was mtry = 2.
@@ -227,7 +235,7 @@ testpca
 This analysis presents a model based on random-forest machine learning algorithm using Principal Components Analysis and cross-validation to detect if weight lifting exercises are perfomed well. Results indicate that the algorithm is able to predict mistakes in exercise with an accuracy > 98% going along with a low error rate of 1.46%. Such information is important because performing exercises in a correct manner can provide substantial health benefits and help avoiding injuries. 
 
 # References
-Max Kuhn. Contributions from Jed Wing, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper,   Zachary Mayer, Brenton Kenkel, the R Core Team, Michael Benesty, Reynald Lescarbeau, Andrew Ziem, Luca Scrucca,   Yuan Tang and Can Candan. (2015). caret: Classification and Regression Training. R package version 6.0-58.        http://CRAN.R-project.org/package=caret
+Max Kuhn. Contributions from Jed Wing, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper,   Zachary Mayer, Brenton Kenkel, the R Core Team, Michael Benesty, Reynald Lescarbeau, Andrew Ziem, Luca Scrucca,   Yuan Tang and Can Candan. (2015). caret: Classification and Regression Training. R package version 6.0-58. http://CRAN.R-project.org/package=caret
 
 R Core Team (2015). R: A language and environment for statistical computing. R Foundation for Statistical           Computing, Vienna, Austria. URL http://www.R-project.org/.
 
