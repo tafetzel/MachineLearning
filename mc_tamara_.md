@@ -1,6 +1,6 @@
 # Predicting quality of exercise
 Tamara Fetzel  
-19. Jänner 2016  
+19. Jan. 2016  
 
 
 # Executive summary
@@ -186,9 +186,9 @@ fitpca
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  Accuracy   Kappa      Accuracy SD  Kappa SD   
-##    2    0.9832333  0.9787905  0.003180936  0.004023620
-##   27    0.9765061  0.9702816  0.001366873  0.001728882
-##   53    0.9766588  0.9704742  0.001812634  0.002293051
+##    2    0.9832843  0.9788534  0.003246539  0.004108077
+##   27    0.9761492  0.9698302  0.001874305  0.002372535
+##   53    0.9765059  0.9702827  0.001565754  0.001978952
 ## 
 ## Accuracy was used to select the optimal model using  the largest value.
 ## The final value used for the model was mtry = 2.
